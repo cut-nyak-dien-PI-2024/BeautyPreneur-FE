@@ -1,0 +1,39 @@
+[
+  {
+    "name": "Pelatihan Makeup Pengatin",
+    "price": "47,043",
+    "detail": "Jakarta Garden City Street, Cakung, Pulo Gadung, Jakarta Timur, DKI Jakarta",
+    "image": "./makeup1.jpg"
+  },
+  {
+    "name": "Pelatihan Korean Makeup",
+    "price": "66,353",
+    "detail": "Pahlawan Street XVII No.215, Cinangka, Sawangan, Depok, Jawa Barat",
+    "image": "./makeup.jpg"
+  },
+  {
+    "name": "Kelas Makeup Lamaran",
+    "price": "35,853",
+    "detail": "Ruko Puri Indah Residence Block A7, Lingkar Street, Ciracas, Serang, Banten",
+    "image": "./makeup6.jpeg"
+  },
+  {
+    "name": "Pelatihan Makeup Adat Tradisional",
+    "price": "47,043",
+    "detail": "Jakarta Garden City Street, Cakung, Pulo Gadung, Jakarta Timur, DKI Jakarta",
+    "image": "./hero-image.jpg"
+  },
+  {
+    "name": "Kelas Makeup Adat Tradisional",
+    "price": "66,353",
+    "detail": "Pahlawan Street XVII No.215, Cinangka, Sawangan, Depok, Jawa Barat",
+    "image": "./makeup4.jpeg"
+  },
+  {
+    "name": "Kelas Makeup Bold",
+    "price": "35,853",
+    "detail": "Ruko Puri Indah Residence Block A7, Lingkar Street, Ciracas, Serang, Banten",
+    "image":"./makeup3.jpeg"
+  }
+]
+

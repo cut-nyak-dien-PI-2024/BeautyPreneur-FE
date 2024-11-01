@@ -1,0 +1,105 @@
+.c-container {
+    justify-content: space-between;
+}
+
+.c-left {
+    gap: .5rem;
+}
+
+.c-right {
+    display: inline-block; /* Mengubah menjadi container flex */
+    text-align: center;
+}
+
+.c-right a {
+    margin: 0 10px;
+}
+
+.c-right *:hover {
+    color: var(--primary);
+}
+
+.c-menu {
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+    font-weight: 500;
+}
+.c-menu *:hover {
+    color:#fdc6d6;
+}
+.contactModes{
+    margin-top: 2rem;
+    gap: 1rem;
+}
+.contactModes .row {
+    gap: 1.5rem ;
+}
+.mode {
+    width: 16rem;
+    padding: 1rem;
+    border: .8px solid rgba(128, 128, 128, .143);
+    border-radius: 5px;
+    gap: 1rem;
+    transition: all  300ms ease-in;
+}
+.mode .button{
+    width: 100%;
+    background: var(--pink-gradient);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.mode >:nth-child(1)
+{
+    width: 100%;
+    gap: 1.6rem;
+
+}
+
+img {
+    border-radius: 10px;
+}
+
+.mode .detail .primaryText {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.mode .detail .secondaryText {
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.mode:hover {
+    scale: 1.1;
+    box-shadow: var(--primary);
+}
+
+.mode .button:hover {
+    background-color: var(--salmon-gradient);
+    color:white;
+    scale: 0.8;
+}
+@media (max-width: 1024px) {
+    .c-container{
+        justify-content: center;
+    }
+    .c-container>div{
+        align-items: center!important;
+        text-align: center;
+    }
+    .c-right{
+        justify-content: center;
+    }
+    .contactModes {
+        width: 100%;
+    }
+    .row {
+        flex-direction: column;
+        width: 100%;
+    }
+    .mode {
+        width: 100%;
+    }
+}
