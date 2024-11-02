@@ -1,30 +1,46 @@
 .hero-wrapper {
-  color: white;
   position: relative;
+  color: white;
   z-index: 1;
   padding-bottom: 2rem;
+  overflow-x: clip; /* Memastikan overflow-x hanya berlaku di Hero */
 }
 
+/* Gradient background untuk Hero */
+.hero-wrapper .white-gradient {
+  position: absolute;
+  width: 30rem;
+  height: 20rem;
+  background: #ffdadf;
+  filter: blur(100px);
+  border-radius: 100px;
+  z-index: -1; /* Agar berada di belakang konten Hero */
+}
 
+/* Gradient background yang sebelumnya ada di .App */
 .hero-container {
+  background: var(--salmon-gradient);
+  position: relative;
   justify-content: space-around;
-  align-items: flex-end; 
+  align-items: flex-end;
 }
 
-
-/* left side */
+/* Elemen-elemen lain di dalam Hero */
 .hero-left {
   gap: 3rem;
 }
+
 .hero-title {
   position: relative;
   z-index: 1;
 }
+
 .hero-title > h1 {
   font-weight: 600;
   font-size: 3.8rem;
   line-height: 4rem;
 }
+
 .pink-circle {
   height: 4rem;
   width: 4rem;
@@ -34,6 +50,7 @@
   top: -10%;
   z-index: -1;
 }
+
 .search-bar {
   background-color: white;
   border-radius: 5px;
@@ -42,23 +59,26 @@
   width: 100%;
   justify-content: space-between;
 }
+
 .search-bar > input {
   border: none;
   outline: none;
 }
-.stats{
-    width: 100%;
-    justify-content: space-between;
-}
-.stat>:nth-child(1)
-{
-    font-size: 2rem;
-}
-.stat>:nth-child(1)>:last-child{
-    color: var(--primary);
-}
-/* right side */
 
+.stats {
+  width: 100%;
+  justify-content: space-between;
+}
+
+.stat > :nth-child(1) {
+  font-size: 2rem;
+}
+
+.stat > :nth-child(1) > :last-child {
+  color: var(--primary);
+}
+
+/* Right side */
 .image-container {
   width: 30rem;
   height: 35rem;
@@ -66,34 +86,39 @@
   border-radius: 15rem 15rem 0 0;
   border: 10px solid rgba(255, 255, 255, 0.12);
 }
-.image-container>img{
-    width: 100%;
-    height: 100%;
+
+.image-container > img {
+  width: 100%;
+  height: 100%;
 }
 
-/* mobile screens */
-@media  (max-width: 640px){
-  .hero-container{
+/* Responsif untuk mobile screens */
+@media (max-width: 640px) {
+  .hero-container {
     margin-top: 2rem;
   }
-  .hero-title>h1{
+
+  .hero-title > h1 {
     font-size: 2.5rem;
     line-height: 3rem;
   }
-  .image-container{
+
+  .image-container {
     width: 95%;
     height: 25rem;
   }
-  .stats{
+
+  .stats {
     justify-content: center;
     gap: 1.5rem;
     font-weight: wrap;
   }
-  .stat>:nth-child(1){
+
+  .stat > :nth-child(1) {
     font-size: 1.5rem;
   }
-  .stat>:nth-child(2)
-  {
+
+  .stat > :nth-child(2) {
     font-size: 0.8rem;
   }
 }

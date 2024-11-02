@@ -4,6 +4,8 @@ import { BiMenuAltRight } from "react-icons/bi";
 import { getMenuStyles } from "../../utils/common";
 import useHeaderColor from "../../hooks/useHeaderColor";
 import OutsideClickHandler from "react-outside-click-handler";
+import { Link } from 'react-router-dom';
+
 
 const Header = () => {
   const [menuOpened, setMenuOpened] = useState(false);
@@ -27,7 +29,7 @@ const Header = () => {
             style={getMenuStyles(menuOpened)}
           >
             <a href="#home">Home</a>
-            <a href="#kelas">Kelas</a>
+            <Link to="/kursus">Kelas</Link>
             <a href="#budgetlist">Budget List</a>
             <a href="#masuk">Masuk</a>
             <button className="button">
