@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 const Hero = () => {
   return (
     <section className="hero-wrapper">
+      <div className="white-gradient"></div> {/* Tambahkan white-gradient sebagai bagian dari Hero */}
       <div  id ="home" className="paddings innerWidth flexCenter hero-container">
         {/* left side */}
         <div className="flexColStart hero-left">
