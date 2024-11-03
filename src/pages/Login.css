@@ -1,0 +1,112 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body, #root {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Styling auth container */
+#login-auth {
+    background-image: url('/assets-img/log-in.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+}
+
+#login-auth .auth__container {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    padding: 40px;
+    max-width: 400px;
+    text-align: center;
+}
+#login-auth .auth__header {
+    font-size: 2rem; /* Perbesar judul */
+    color: #333; /* Gaya warna judul */
+  }
+  
+  #login-auth .auth__input {
+    font-size: 1rem; /* Tingkatkan ukuran font input */
+    border-radius: 10px; /* Sesuaikan dengan container */
+  }
+  
+
+  
+
+
+/* Form login */
+#login-auth .auth__form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Input field styling */
+#login-auth .input-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+#login-auth .input-wrapper label {
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+#login-auth .input-field {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+#login-auth .input-field .icon {
+    margin-right: 10px;
+    color: #666;
+}
+
+#login-auth .input-field input {
+    width: 100%;
+    padding: 10px;
+    padding-left: 35px; /* Adjusted for icon */
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.eye-icon {
+    position: absolute;
+    right: 10px;
+    color: #666;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+/* Login button styling */
+/* Pink Login button styling */
+#login-auth .auth__login-button {
+    background-color:  #ff3d7f !important; /* Warna pink dengan !important */
+    border: none;
+    color: white !important;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1.1rem; /* Ukuran font tombol lebih besar */
+    transition: background-color 0.3s ease;
+    padding: 14px; /* Tambah padding tombol */
+}
+
+#login-auth .auth__login-button:hover {
+    background-color:#ff69b4 !important; 
+}
+
