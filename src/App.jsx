@@ -13,6 +13,10 @@ import Payment1 from "./pages/Payment1";
 import Payment2 from "./pages/Payment2";
 import Payment3 from "./pages/Payment3";
 import SuccessBuy from './pages/SuccessBuy';
+import Registrasi from './pages/Registrasi';
+import Login from './pages/Login';  // Login component
+import LupaPassword from './pages/LupaPassword';
+import Verifkode from './pages/Verifkode';
 
 function App() {
   return (
@@ -32,6 +36,11 @@ function App() {
             <Route path="/payment2/:id" element={<Payment2 />} />
             <Route path="/payment3/:id" element={<Payment3 />} />
             <Route path="/success-payment" element={<SuccessBuy />} />
+            {/* Routes untuk halaman Registrasi */}
+            <Route path="/registrasi" element={<Registrasi/>}/>
+            <Route path="/login" element={<Login />} />
+            <Route path="/lupa-password" element={<LupaPassword/>}/>
+            <Route path="/verif-kode" element={<Verifkode/>}/>
           </Routes>
           <Footer />
         </div>

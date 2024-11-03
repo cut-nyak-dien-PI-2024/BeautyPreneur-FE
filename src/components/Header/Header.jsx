@@ -32,9 +32,9 @@ const Header = () => {
             <Link to="/">Home</Link>
             <Link to="/kursus">Kelas</Link>
             <a href="#budgetlist">Budget List</a>
-            <a href="#masuk">Masuk</a>
+            <Link to="/login">Masuk</Link>
             <button className="button">
-              <a href="mailto:beautypreneur@gmail.com">Daftar</a>
+            <Link to="/registrasi">Daftar</Link>
             </button>
           </div>
         </OutsideClickHandler>

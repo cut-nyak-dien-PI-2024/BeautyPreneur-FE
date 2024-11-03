@@ -1,0 +1,96 @@
+/* Background Container */
+#register-auth {
+  background-image: url('/assets-img/log-in.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* Input Container */
+#register-auth .auth__container {
+  background: rgba(255, 255, 255, 0.8); /* Transparan putih */
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(255, 102, 179, 0.5);
+  padding: 30px;
+  width: 100%;
+  max-width: 400px;
+}
+
+#register-auth .auth__header {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+  color: #ff66b3;
+}
+
+/* Styling Input */
+#register-auth .auth__input {
+  width: 100%;
+  padding: 12px 16px;
+  padding-right: 40px; /* Spasi untuk icon mata */
+  background: transparent;
+  border: 1px solid #ff66b3;
+  border-radius: 8px;
+  margin-top: 8px;
+  margin-bottom: 20px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+#register-auth .auth__input:focus {
+  outline: none;
+  border-color: #ff99cc;
+  box-shadow: 0 0 8px #ff66b3;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 0.3rem;
+  color: #333;
+  font-weight: 600;
+}
+
+/* Eye Icon Styling */
+.input-group {
+  position: relative;
+}
+
+.eye-icon {
+  position: absolute;
+  top: 44%;
+  right: 10px;
+  transform: translateY(-50%);
+  color: #ff99cc;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.eye-icon:hover {
+  color: #ff66b3;
+}
+
+/* Button Styling */
+#register-auth .auth__login-button {
+  width: 100%;
+  padding: 12px;
+  background-color: #ff66b3;
+  border: none;
+  color: #fff;
+  border-radius: 8px;
+  transition: background-color 0.3s;
+  font-weight: bold;
+}
+
+#register-auth .auth__login-button:hover {
+  background-color: #ff99cc;
+  box-shadow: 0 4px 15px rgba(255, 102, 179, 0.4);
+}
+
+.fs-6{
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
