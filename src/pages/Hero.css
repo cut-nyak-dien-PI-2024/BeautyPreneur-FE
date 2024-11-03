@@ -63,6 +63,7 @@
 .search-bar > input {
   border: none;
   outline: none;
+  color: black;
 }
 
 .stats {
