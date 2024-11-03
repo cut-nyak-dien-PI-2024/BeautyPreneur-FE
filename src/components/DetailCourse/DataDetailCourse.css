@@ -1,193 +1,168 @@
-/* Main Container */
-#training {
-    background-color: #fff9f9;
-    padding: 40px 20px 30px; /* Increased top padding */
-    border-radius: 12px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
-    margin-top: 30px; /* Adds more spacing from the header */
-  }
-  
-  /* Header Section */
-  .training__header {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .training__desc {
-    flex: 1;
-    max-width: 550px;
-    text-align: left;
-    margin-right: 20px;
-  }
-  
-  .training__title {
-    font-size: 28px;
-    font-weight: 700;
-    color: #333;
-    margin-bottom: 12px;
-    font-family: 'Montserrat', sans-serif; /* Elegant font */
-  }
-  .mb-3 p{
-    text-align:left
-  }
- 
-  
-  .training__desc p {
-    font-size: 16px;
-    color: #666;
-    margin: 0 0 10px;
-    line-height: 1.6;
-    font-family: 'Open Sans', sans-serif;
-  }
-  
-  .training__price {
-    font-size: 22px;
-    color: #ff3366;
-    font-weight: 700;
-    margin-right: 8px;
-  }
-  
-  .training__price--cross {
-    color: #aaa;
-    text-decoration: line-through;
-    font-weight: 400;
-  }
-  
-  .training__register-button {
-    background-color: #ff3366;
-    color: white;
-    padding: 12px 24px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 600;
-    font-family: 'Montserrat', sans-serif;
-    transition: all 0.3s;
-    box-shadow: 0 4px 10px rgba(255, 51, 102, 0.3);
-  }
-  
-  .training__register-button:hover {
-    background-color: #ff6699;
-    box-shadow: 0 6px 15px rgba(255, 51, 102, 0.4);
-  }
-  
-  /* Image */
-  .training_image {
-    flex: 1;
-    max-width: 280px;
-  }
-  
-  .training__image {
-    width: 100%;
-    height: auto;
-    border-radius: 16px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Tabs Section */
-  .training__tabs {
-    margin-top: 24px;
-  }
-  
-  .training__tabs-tabs .nav-link {
-    color: #777;
-    font-weight: 500;
-    padding: 12px 16px;
-    font-size: 16px;
-    transition: color 0.3s, background-color 0.3s;
-    font-family: 'Open Sans', sans-serif;
-  }
-  
-  .training__tabs-tabs .nav-link.active {
-    background-color: #ff3366;
-    color: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(255, 51, 102, 0.3);
-  }
-  
-  .training__tabs-content {
-    background-color: #fff;
-    padding: 24px;
-    border-radius: 10px;
-    border: 1px solid #eee;
-    margin-top: 15px;
-  }
-  
-  .tab-pane p,
-  .tab-pane ol {
-    text-align: left;
-    font-size: 16px;
-    color: #555;
-    line-height: 1.8;
-  }
-  
-  .tab-pane ol {
-    padding-left: 25px;
-  }
-  
-  /* Portfolio Images */
-  .training__tabs-content img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
-    margin: 12px 0;
-  }
-  
-  /* Mentor Section */
-  .training__info-card {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 14px;
-    border: 1px solid #eee;
-    margin-top: 20px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.05);
-  }
-  
-  .training__mentor-card {
-    display: flex;
-    align-items: center;
-  }
-  
-  .training__mentor-pic {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    margin-right: 12px;
-  }
-  
-  .training__mentor-name {
-    font-size: 18px;
-    font-weight: bold;
-    color: #333;
-  }
-  
-  .training__mentor-name p {
-    font-size: 14px;
-    margin: 0;
-    color: #999;
-  }
-  
-  /* Level and Info Cards */
-  .training__level-card {
-    margin-top: 18px;
-    padding-top: 16px;
-    border-top: 1px solid #eee;
-  }
-  
-  .training__level-info {
-    display: flex;
-    justify-content: space-between;
-    padding: 6px 0;
-  }
-  
-  .training__level-label {
-    font-weight: 600;
-    color: #777;
-  }
-  
-  .training__level-value {
-    color: #333;
-    font-weight: 600;
-  }
-  
+
+
+.training-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px;
+  background: linear-gradient(135deg, rgba(255, 238, 243, 1), rgba(255, 240, 244, 1));
+  border-radius: 15px;
+  box-shadow: 0.9px 4px 26px rgba(0, 0, 0, 0.1);
+}
+
+.training__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.training__image {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 15px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.training__title {
+  font-size: 2.2em;
+  color: #ff007f;
+  margin-bottom: 15px;
+}
+
+.training__text {
+  font-size: 1.1em;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.training__price-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.training__price--cross {
+  text-decoration: line-through;
+  color: #999;
+  font-size: 1.2em;
+}
+
+.training__price {
+  font-size: 1.5em;
+  color: #ff007f;
+  font-weight: bold;
+}
+
+.btn-register {
+  background: linear-gradient(90deg, #ff007f, #ff57b9);
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  padding: 12px 24px;
+  font-size: 1.1em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0px 4px 10px rgba(255, 0, 127, 0.3);
+}
+
+.btn-register:hover {
+  background: linear-gradient(90deg, #ff57b9, #ff007f);
+  box-shadow: 0px 6px 12px rgba(255, 0, 127, 0.5);
+  transform: scale(1.05);
+}
+
+.training__content {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.training__tabs-section {
+  flex: 3;
+  background-color: #fff;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.training__tabs {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.training__tab {
+  padding: 10px 20px;
+  cursor: pointer;
+  color: #ff007f;
+  background: #ffe0e6;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+}
+
+.training__tab.active {
+  background-color: #ff007f;
+  color: #fff;
+}
+
+.training__tab-content p,
+.training__tab-content ol {
+  color: #555;
+  font-size: 1.1em;
+}
+
+.portfolio-images {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.portfolio-image {
+  width: 48%;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.training__mentor-info {
+  flex: 1;
+  background-color: #ffe0e6;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.mentor-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.mentor-card__image {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.mentor-card__name {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #ff007f;
+}
+
+.training__details {
+  font-size: 1em;
+  color: #555;
+}
+
+.training__details div {
+  margin: 10px 0;
+}
