@@ -16,7 +16,7 @@ const Login = ({ onLogin }) => {
       alert(`Selamat datang, ${user.nama}!`);
       localStorage.setItem('isLoggedIn', 'true');
       if (onLogin) onLogin({ email: emailInput });
-      navigate('/kelas');
+      navigate('/');
     } else {
       alert('Email atau password salah atau belum terdaftar!');
     }

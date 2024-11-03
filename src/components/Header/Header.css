@@ -23,9 +23,49 @@
   cursor: pointer;
   color: var(--primary);
 }
+/* Additional button styling for a consistent hover experience */
+#signin {
+  color: #d9534f;
+  padding: 8px 12px;
+  border-radius: 5px;
+  transition: color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#signin:hover {
+  color: #fff;
+  background-color: #ea9ab2;
+  box-shadow: 0px 4px 8px rgba(234, 154, 178, 0.4);
+}
+#exit {
+  color: #d9534f;
+  padding: 8px 12px;
+  border-radius: 5px;
+  transition: color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#exit:hover {
+  color: #fff;
+  background-color: #ea9ab2;
+  box-shadow: 0px 4px 8px rgba(234, 154, 178, 0.4);
+}
+
 .menu-icon {
   display: none;
 }
+.user-greeting {
+  font-weight: bold;
+  font-size: 1rem;
+  color: #ff66b3; /* Warna yang lebih cerah */
+  padding: 0 10px;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.2);
+  transition: background-color 0.3s;
+}
+
+.user-greeting:hover {
+  background-color: rgba(255, 102, 179, 0.4);
+}
+
 
 @media (max-width: 768px) {
   .menu-icon {
