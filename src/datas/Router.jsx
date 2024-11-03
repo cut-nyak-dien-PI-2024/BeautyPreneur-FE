@@ -1,7 +1,7 @@
 import Course from "../pages/Kelas";
 import TrainingSection from "../pages/DetailCourse";
 import Home from "../pages/Home";
-//import SuccessBuy from "../pages/SuccessBuy";
+import SuccessBuy from "../pages/SuccessBuy";
 
 export default function Router() {
   return [
