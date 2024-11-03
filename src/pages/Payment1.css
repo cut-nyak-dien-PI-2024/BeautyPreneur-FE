@@ -1,0 +1,150 @@
+
+/* Untuk container utama */
+.containerPayment {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f7f7f7;
+}
+
+.headerFirstPayment {
+    height: 80px;
+    background-color: #f2f2f2;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+p {
+    text-align: center;
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #e91e63;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.payment-section {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding-top: 30px;
+}
+
+/* Style untuk form informasi pembeli */
+.customer-info {
+    background-color: #ffe7e7;
+    padding: 20px;
+    border-radius: 10px;
+    width: 45%;
+}
+
+.customer-info h2 {
+    color: #e91e63;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.customer-info form {
+    display: flex;
+    flex-direction: column;
+}
+
+.customer-info label {
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.customer-info input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    font-size: 14px;
+    color: #888;
+}
+
+.customer-info button {
+    padding: 12px;
+    background-color: #e91e63;
+    border: none;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.customer-info button:hover {
+    background-color: #d81b60;
+}
+
+/* Style untuk ringkasan pesanan */
+.order-summary {
+    background-color: #ffe7e7;
+    padding: 20px;
+    border-radius: 10px;
+    width: 45%;
+}
+
+.order-summary h2 {
+    color: #e91e63;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.order-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.order-item img {
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.order-sub {
+    display: flex;
+    flex-direction: column;
+}
+
+.prduct-name {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+}
+
+.item-quantity {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: #333;
+}
+
+.item-quantity p {
+    margin: 0 5px;
+}
+
+.total {
+    text-align: right;
+    font-size: 16px;
+    font-weight: bold;
+    color: #e91e63;
+    margin-top: 20px;
+}
+
+.delete-icon {
+    color: #e91e63;
+    cursor: pointer;
+    margin-left: auto;
+    padding-left: 10px;
+}

@@ -1,0 +1,114 @@
+
+.confirmation-container {
+    width: 50%;
+ margin:0 auto;
+     margin-top:180px;
+
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.headerConfirmation {
+    
+    margin-bottom: 20px;
+}
+
+.headerConfirmation p {
+    font-size: 20px;
+    font-weight: bold !important;
+    margin-bottom: 10px;
+}
+
+.whatsapp-button {
+    background-color: #3C905A;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.form-container {
+    margin-top: 20px;
+    text-align: left;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+}
+
+input[type="file"] {
+    padding: 3px;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #ff5e5e;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .confirmation-container {
+        width: 80%;
+        padding: 15px;
+    }
+
+    .headerConfirmation p {
+        font-size: 18px;
+    }
+
+    .whatsapp-button, .submit-btn {
+        padding: 10px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+
+    .confirmation-container {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .headerConfirmation p {
+        font-size: 16px;
+    }
+
+    .whatsapp-button, .submit-btn {
+        padding: 8px;
+        font-size: 12px;
+    }
+
+    input, select {
+        font-size: 12px;
+        padding: 8px;
+    }
+}
