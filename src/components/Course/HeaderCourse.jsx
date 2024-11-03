@@ -19,8 +19,8 @@ export default function HeaderCourse() {
   return (
     <div className="w-full mx-auto md:my-10 mt-24 md:mt-20 md:text-[22px] text-[14px] px-2 md:px-0 gap-14 font-medium capitalize flex flex-col  max-w-7xl">
       <div className="flex flex-col gap-4">
-        <h3 className="md:text-3xl text-xl">Kursus Makeup</h3>
-        <h5>untuk pemula hingga profesional</h5>
+      <h3 className="md:text-3xl text-xl text-center">Kursus Makeup</h3>
+      <h5 className="md:text-2xl text-l text-center">untuk pemula hingga profesional</h5>
       </div>
       <div className="md:w-[50%] w-full px-4 md:px-0 mx-auto">
         <div className="border py-2 px-4 w-full flex flex-row items-center justify-between  border-gray-400 rounded-[10px]">
