@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect } from "react";
+import"./Kelas.css";
 import BodyCourse from "../components/Course/BodyCourse"
 import HeaderCourse from "../components/Course/HeaderCourse"
 // import { DataDummy } from "../datas/DataCourseDummy";
