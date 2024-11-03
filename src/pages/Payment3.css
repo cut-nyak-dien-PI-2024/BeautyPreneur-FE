@@ -1,24 +1,22 @@
-
 .confirmation-container {
     width: 50%;
- margin:0 auto;
-     margin-top:180px;
-
+    margin: 0 auto;
+    margin-top: 180px;
     background-color: white;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.2), 0px 8px 8px rgba(0, 0, 0, 0.2);
+
     text-align: center;
 }
 
 .headerConfirmation {
-    
     margin-bottom: 20px;
 }
 
 .headerConfirmation p {
     font-size: 20px;
-    font-weight: bold !important;
+    font-weight: bold;
     margin-bottom: 10px;
 }
 
@@ -40,14 +38,15 @@
     margin-bottom: 15px;
 }
 
-label {
+.form-group label {
     display: block;
     font-size: 14px;
     font-weight: bold;
     margin-bottom: 5px;
 }
 
-input, select {
+.form-group input,
+.form-group select {
     width: 100%;
     padding: 10px;
     border-radius: 5px;
@@ -55,8 +54,14 @@ input, select {
     font-size: 14px;
 }
 
-input[type="file"] {
+.form-group input[type="file"] {
     padding: 3px;
+}
+
+.total {
+    font-size: 16px;
+    font-weight: bold;
+    color: #ff5e5e;
 }
 
 .submit-btn {
@@ -89,10 +94,6 @@ input[type="file"] {
 }
 
 @media (max-width: 480px) {
-    body {
-        padding: 10px;
-    }
-
     .confirmation-container {
         width: 100%;
         padding: 10px;
@@ -107,7 +108,8 @@ input[type="file"] {
         font-size: 12px;
     }
 
-    input, select {
+    .form-group input,
+    .form-group select {
         font-size: 12px;
         padding: 8px;
     }

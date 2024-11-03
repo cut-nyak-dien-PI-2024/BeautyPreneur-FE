@@ -4,11 +4,10 @@ import axios from 'axios';
 import './Payment1.css';
 
 const Payment1 = () => {
-  const { id } = useParams(); // Mengambil ID dari URL
-  const navigate = useNavigate(); // Mendapatkan fungsi navigate
-  const [training, setTraining] = useState(null); // State untuk menyimpan data training
+  const { id } = useParams();
+  const navigate = useNavigate();
+  const [training, setTraining] = useState(null);
 
-  // Fetch data training berdasarkan ID
   useEffect(() => {
     axios
       .get(`https://api.mockfly.dev/mocks/8b71d6f2-9d3a-43ed-85d5-483f9c7e2c1d/pelatihan`)
@@ -19,27 +18,28 @@ const Payment1 = () => {
       .catch(error => console.error('Error fetching data:', error));
   }, [id]);
 
-  // Jika training tidak ditemukan
   if (!training) {
     return <div>Loading...</div>;
   }
 
-  // Fungsi untuk navigasi ke halaman Payment2
   const ClickTwo = (e) => {
-    e.preventDefault(); // Mencegah form submission default
-    navigate(`/payment2/${id}`); // Navigasi ke halaman Payment2 dengan ID yang sama
+    e.preventDefault();
+    navigate(`/payment2/${id}`);
   };
 
   return (
     <div className="containerPayment">
-      <div className="headerFirstPayment"></div>
-      <p>Setelah melakukan pembayaran, Admin kami akan SEGERA menghubungi (2 X 24 JAM KERJA)</p>
+      <div className="headerFirstPayment">
+        <p className="payment-info-text">
+          Setelah melakukan pembayaran, Admin kami akan SEGERA menghubungi (2 X 24 JAM KERJA)
+        </p>
+      </div>
 
-      <h1>Review Payment</h1>
+      <h1 className="main-title">Review Payment</h1>
 
       <div className="payment-section">
         <div className="customer-info">
-          <h2>Informasi Pembeli</h2>
+          <h2 className="title">Informasi Pembeli</h2>
           <form id="payment-form" onSubmit={ClickTwo}>
             <label htmlFor="name">Nama</label>
             <input placeholder="Uci Chatrinada" type="text" id="name" name="name" required />
@@ -55,14 +55,14 @@ const Payment1 = () => {
         </div>
 
         <div className="order-summary">
-          <h2>Order Summary</h2>
+          <h2 className="title">Order Summary</h2>
           <div className="order-item">
             <img src={training.headline_img} alt={training.title} />
             <div className="order-sub">
               <p className="product-name">{training.title}</p>
               <div className="item-quantity">
-                <p>Rp. {training.price}</p>
-                <p>1x</p>
+                <p className="quantity-text">Rp. {training.price}</p>
+                <p className="quantity-text">1x</p>
                 <p id="subtotal">Rp. {training.price}</p>
               </div>
             </div>

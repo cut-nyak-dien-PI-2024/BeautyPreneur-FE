@@ -1,20 +1,16 @@
-
-
-
-
 .invoice-container {
-     width: 100%;
-    margin: 0 auto;
-    background-color:white;
-    padding: 20px;
+    width: 90%; /* Memberikan lebar agar ada jarak dari tepi */
+    max-width: 800px; /* Membatasi lebar maksimal agar lebih konsisten */
+    margin: 20px auto; /* Memberikan jarak otomatis pada bagian kanan-kiri dan sedikit margin atas */
+    background-color: white;
+    padding: 20px 30px; /* Memberikan padding pada kanan dan kiri */
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
 .headerInvoice {
-
     background-color: #f5f5f5;
-    padding: 10px;
+    padding: 15px 20px; /* Menambahkan padding agar lebih nyaman */
     text-align: center;
 }
 
@@ -23,166 +19,125 @@
     margin-bottom: 60px;
 }
 
-.invoice-details h2 {
-    margin-bottom: 50px; /* Jarak bawah agar tidak terlalu mepet */
-    font-weight: bold;   /* Membuat teks menjadi tebal */
-    font-size: 24px;     /* (Opsional) Menambahkan ukuran font agar lebih terlihat */
-    color: #333;         /* (Opsional) Menambahkan warna teks agar lebih elegan */
+.invoice-title {
+    margin-bottom: 30px;
+    font-weight: bold;
+    font-size: 24px;
+    color: #333;
+    text-align: center; /* Menyesuaikan dengan Payment1 */
 }
-
 
 .product-info {
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid #ddd;
-    padding-bottom: 10px;
+    padding: 15px 0; /* Memberikan padding atas-bawah agar tidak terlalu rapat */
 }
 
-.product-info img {
+.product-image {
     width: 150px;
     height: 80px;
     border-radius: 5px;
 }
 
-.product-info div {
-    text-align: right;
-}
-
 .product-name {
     font-size: 16px;
     font-weight: bold;
+    color: #333;
+}
+
+.product-price, .product-qty {
+    font-size: 14px;
+    color: #888;
 }
 
 .pricing {
     margin-top: 20px;
+    padding: 0 10px; /* Menambah padding agar tidak terlalu mepet */
 }
 
-.pricing p {
+.subtotal, .discount, .total-price {
     display: flex;
     justify-content: space-between;
+    font-size: 14px;
+    color: #333;
+}
+
+.total-price {
+    font-weight: bold;
+    color: #e91e63;
 }
 
 .buttons {
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
+    padding: 0 10px; /* Menambah padding kanan kiri agar seimbang */
 }
 
-button {
-    padding: 10px 20px;
+.back-button, .confirm-button {
+    width: 48%; /* Memastikan tombol terdistribusi dengan baik */
+    padding: 10px;
+    font-size: 16px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 16px;
+    font-weight: bold;
 }
 
 .register-button {
-    background-color: #e91e63; /* Pink elegan */
+    background-color: #e91e63;
     color: white;
-    padding: 10px 20px;
-    font-size: 16px;
     border: none;
     border-radius: 8px;
-    cursor: pointer;
-    font-weight: bold;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
 }
 
-/* Efek hover */
-.register-button:hover {
-    background-color: #d81b60; /* Warna pink sedikit lebih gelap */
-    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
-    transform: translateY(-2px);
-}
-
-/* Efek saat tombol ditekan */
-.register-button:active {
-    background-color: #c2185b; /* Warna pink lebih gelap */
-    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
-    transform: translateY(1px);
-}
-
-
 .payment-info {
     margin-top: 30px;
     background-color: #fff3f3;
-    padding-left: 20px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding: 15px 20px; /* Menambah padding untuk kenyamanan */
+    border-radius: 5px; /* Membuat tepi sedikit membulat */
 }
 
-.payment-info h3 {
-    margin-bottom: 10px;
-}
-
-.payment-info ul {
-    list-style-type: none;
-    margin-bottom: 20px;
-}
-
-.payment-info li {
-    margin-bottom: 5px;
-}
-
-.payment-info p {
-    margin-bottom: 10px;
-}
-
-strong {
-    font-weight: bold;
+.payment-title {
+    font-size: 18px;
     color: #333;
 }
 
-.total {
-    font-size: 16px;
-    font-weight: bold;
-    margin-top: 20px;
+.payment-instruction, .payment-confirmation, .wa-contact {
+    font-size: 14px;
+    color: #555;
+}
+
+.payment-options {
+    list-style-type: none;
+    margin-bottom: 20px;
+    padding-left: 20px; /* Memberikan padding pada daftar */
+}
+
+.payment-options li {
+    margin-bottom: 5px;
+}
+
+.wa-contact strong {
+    font-size: 14px;
     color: #e91e63;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
     .invoice-container {
-        width: 80%;
-        padding: 15px;
-    }
-
-    .product-info img {
-        width: 120px;
-        height: 60px;
-    }
-
-    button {
-        font-size: 14px;
-    }
-}
-
-@media (max-width: 480px) {
-    body {
-        padding: 10px;
-    }
-
-    .invoice-container {
-        width: 100%;
-        padding: 10px;
+        width: 90%;
+        padding: 15px 20px;
     }
 
     .product-info {
         flex-direction: column;
         align-items: flex-start;
-        text-align: left;
-    }
-
-    .product-info img {
-        width: 100px;
-        height: 50px;
-        margin-bottom: 10px;
-    }
-
-    .product-info div {
-        text-align: left;
+        padding: 10px 0;
     }
 
     .buttons {
@@ -192,10 +147,5 @@ strong {
     .buttons button {
         width: 100%;
         margin-bottom: 10px;
-    }
-
-    button {
-        font-size: 12px;
-        padding: 8px;
     }
 }

@@ -1,5 +1,6 @@
+/* Payment1.css */
 
-/* Untuk container utama */
+/* Container utama */
 .containerPayment {
     width: 90%;
     max-width: 1200px;
@@ -8,21 +9,27 @@
     background-color: #f7f7f7;
 }
 
+/* Header pertama */
 .headerFirstPayment {
     height: 80px;
     background-color: #f2f2f2;
     border-radius: 10px;
     margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-p {
-    text-align: center;
+/* Paragraph untuk pesan informasi */
+.payment-info-text {
     font-size: 14px;
     color: #333;
-    margin-bottom: 20px;
+    margin: 0;
+    text-align: center;
 }
 
-h1 {
+/* Judul utama di halaman */
+.containerPayment .main-title {
     text-align: center;
     color: #e91e63;
     font-size: 24px;
@@ -30,6 +37,7 @@ h1 {
     margin-bottom: 30px;
 }
 
+/* Section pembayaran */
 .payment-section {
     display: flex;
     justify-content: space-between;
@@ -37,7 +45,7 @@ h1 {
     padding-top: 30px;
 }
 
-/* Style untuk form informasi pembeli */
+/* Informasi pembeli */
 .customer-info {
     background-color: #ffe7e7;
     padding: 20px;
@@ -45,7 +53,7 @@ h1 {
     width: 45%;
 }
 
-.customer-info h2 {
+.customer-info .title {
     color: #e91e63;
     font-size: 18px;
     margin-bottom: 15px;
@@ -70,7 +78,7 @@ h1 {
     color: #888;
 }
 
-.customer-info button {
+.customer-info .register-button {
     padding: 12px;
     background-color: #e91e63;
     border: none;
@@ -81,11 +89,11 @@ h1 {
     cursor: pointer;
 }
 
-.customer-info button:hover {
+.customer-info .register-button:hover {
     background-color: #d81b60;
 }
 
-/* Style untuk ringkasan pesanan */
+/* Ringkasan pesanan */
 .order-summary {
     background-color: #ffe7e7;
     padding: 20px;
@@ -93,7 +101,7 @@ h1 {
     width: 45%;
 }
 
-.order-summary h2 {
+.order-summary .title {
     color: #e91e63;
     font-size: 18px;
     margin-bottom: 15px;
@@ -117,7 +125,7 @@ h1 {
     flex-direction: column;
 }
 
-.prduct-name {
+.order-sub .product-name {
     font-size: 14px;
     font-weight: bold;
     color: #333;
@@ -130,7 +138,7 @@ h1 {
     color: #333;
 }
 
-.item-quantity p {
+.item-quantity .quantity-text {
     margin: 0 5px;
 }
 
