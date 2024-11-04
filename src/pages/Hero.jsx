@@ -73,7 +73,7 @@ const Hero = () => {
               value={searchTerm}
               onChange={handleSearch}
             />
-            <button className="button">Cari</button>
+            <button className="button" onClick={() => navigate("/kursus")}>Cari</button>
 
             {/* Search results dropdown */}
             {searchTerm && (
