@@ -3,7 +3,7 @@ import data from "../utils/kelas.json";
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 // Import Swiper styles
 import "swiper/css";
-import "./kelas-hero.css";
+import "./KelasHero.css";
 import { sliderSettings } from "../utils/common";
 const Residencies = () => {
   return (
