@@ -84,8 +84,8 @@ const DataDetailCourse = () => {
             )}
             {activeTab === "porto" && (
               <div className="portfolio-images">
-                {training.porto && training.porto.map((src, index) => (
-                  <img key={index} className="portfolio-image" src={src} alt={`Portfolio ${index + 1}`} />
+                {training.portofolio && training.portofolio.map((src, index) => (
+                  <img key={index} className="portfolio-image" src={src.image_url} alt={`Portfolio ${index + 1}`} />
                 ))}
               </div>
             )}
