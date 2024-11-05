@@ -17,7 +17,6 @@ export default function Course() {
       try {
         // const data = DataDummy();
          const data = await getAllCourses();
-         console.log(data, 'ini data');
         dispatch(addCourses(data.data));
       } catch (error) {
         console.error("failed", error);

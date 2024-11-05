@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './Payment1.css';
+import { getCourseBySlug } from "../components/services/coursesServices";
 
 const Payment1 = () => {
   const { id } = useParams();
@@ -9,11 +10,10 @@ const Payment1 = () => {
   const [training, setTraining] = useState(null);
 
   useEffect(() => {
-    axios
-      .get(`https://api.mockfly.dev/mocks/8b71d6f2-9d3a-43ed-85d5-483f9c7e2c1d/pelatihan`)
+    getCourseBySlug(id)
       .then(response => {
-        const trainingData = response.data.data.find(item => item.id === id);
-        setTraining(trainingData);
+        const trainingData = response;
+        setTraining(trainingData.data);
       })
       .catch(error => console.error('Error fetching data:', error));
   }, [id]);

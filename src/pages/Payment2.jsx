@@ -1,21 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import axios from 'axios';
 import './Payment2.css';
+import { getCourseBySlug, createOrder } from "../components/services/coursesServices";
+import bankConfig from "./../datas/BankAccount";
+
 
 const Payment2 = () => {
     const { id } = useParams();
     const navigate = useNavigate();
     const [training, setTraining] = useState(null);
+    const [order, setOrder] = useState({});
 
     useEffect(() => {
-        axios
-            .get(`https://api.mockfly.dev/mocks/8b71d6f2-9d3a-43ed-85d5-483f9c7e2c1d/pelatihan`)
-            .then((response) => {
-                const trainingData = response.data.data.find((item) => item.id === id);
-                setTraining(trainingData);
-            })
-            .catch((error) => console.error('Error fetching data:', error));
+        getCourseBySlug(id)
+        .then(response => {
+          const trainingData = response;
+          setTraining(trainingData.data);
+        })
+        .catch(error => console.error('Error fetching data:', error));
     }, [id]);
 
     if (!training) {
@@ -24,13 +26,30 @@ const Payment2 = () => {
 
     const ClickThree = (e) => {
         e.preventDefault();
-        navigate(`/payment3/${id}`);
+        
+        // create order
+        // if success then redirect user to payment confirmation page
+        createOrder(id)
+        .then(resp => {
+            const orderResp = resp.data;
+            setOrder(orderResp);
+            console.log(orderResp);
+            navigate(`/payment3/${id}/${orderResp?.data?._id}`);
+        })
+        .catch(err => {
+            alert(err.response?.data?.message);
+            navigate(`/kursus/${id}`);
+        })
     };
     
     const ClickTwo = (e) => {
         e.preventDefault();
         navigate(`/payment/${id}`);
     };
+
+    const bankAccounts = Object.values(bankConfig.BANK_ACCOUNTS).map(bankAccount => {
+        return <li>{bankAccount}</li>
+    });
 
     return (
         <div className="invoice-container">
@@ -62,14 +81,9 @@ const Payment2 = () => {
             <div className="payment-info">
                 <h3 className="payment-title">Selangkah Lagi!</h3>
                 <p className="payment-instruction">1. TRANSFER VIA beberapa opsi pembayaran di bawah ini :</p>
-                <ul className="payment-options">
-                    <li><strong>BRI</strong> no rek 3170-01-001379-50-5 a/n UCI CHATRINADA SH</li>
-                    <li><strong>MANDIRI</strong> no rek 0000000000 a/n Windi Al Azmi</li>
-                    <li><strong>BTPN</strong> no rek 90011192933 a/n Erwiana Anggriani</li>
-                    <li><strong>BNI</strong> no rek 1387505038 a/n Sabrina Natasya Bilbina</li>
-                </ul>
+                <ul className="payment-options">{bankAccounts}</ul>
                 <p className="payment-confirmation">2. Setelah melakukan transfer, tekan tombol KONFIRMASI PEMBAYARAN disertai dengan upload bukti pembayaran atau kirim bukti transfer ke WA.</p>
-                <p className="wa-contact"><strong>WA: 082-5939-6969</strong> (WA Only, tidak dapat di telepon)</p>
+                <p className="wa-contact"><strong>WA: {bankConfig.PAYMENT_CONFIRMATION_PHONE}</strong> (WA Only, tidak dapat di telepon)</p>
             </div>
         </div>
     );

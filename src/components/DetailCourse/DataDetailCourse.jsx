@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import "./DataDetailCourse.css";
 import axios from 'axios';
+import { getCourseBySlug } from "../services/coursesServices";
 
 const DataDetailCourse = () => {
   const [training, setTraining] = useState(null);
@@ -10,15 +11,24 @@ const DataDetailCourse = () => {
   const navigate = useNavigate();
 
   const handleRegisterClick = () => {
+    // validate user logged-in before goto payment flow
+    // redirect the user to sign-in pages if not logged-in
+    // continue to payment page if logged-in
+    const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+    if (!isLoggedIn) {
+      alert("Please sign-in before continue");
+      navigate(`/login`);
+      return;
+    }
+
     navigate(`/payment/${id}`);
   };
 
   useEffect(() => {
-    axios
-      .get(`https://api.mockfly.dev/mocks/8b71d6f2-9d3a-43ed-85d5-483f9c7e2c1d/pelatihan`)
+    getCourseBySlug(id)
       .then(response => {
-        const trainingData = response.data.data.find(item => item.id === id);
-        setTraining(trainingData);
+        const trainingData = response;
+        setTraining(trainingData.data);
       })
       .catch(error => console.error('Error fetching data:', error));
   }, [id]);
@@ -37,7 +47,7 @@ const DataDetailCourse = () => {
           <h3 className="training__title">{training.title}</h3>
           <p className="training__text">{training.desc}</p>
           <div className="training__price-container">
-            <span className="training__price--cross">{training.original_price}</span>
+            <span className="training__price--cross">{training?.original_price || training.price}</span>
             <span className="training__price">
               {training.price === 'gratis' ? 'Free' : `Rp ${training.price}`}
             </span>
@@ -60,7 +70,7 @@ const DataDetailCourse = () => {
             )}
             {activeTab === "materi" && (
               <ol>
-                {training.materi ? training.materi.map((item, index) => (
+                {training.materi ? training.materi.split(", ").map((item, index) => (
                   <li key={index}>{item}</li>
                 )) : (
                   <>
@@ -92,9 +102,9 @@ const DataDetailCourse = () => {
           </div>
           <div className="training__details">
             <div><strong>Tingkat:</strong> {training.level}</div>
-            <div><strong>Tanggal:</strong> {training.duration.date}</div>
-            <div><strong>Waktu:</strong> {training.duration.time}</div>
-            <div><strong>Jumlah Peserta:</strong> {training.total_student}</div>
+            <div><strong>Tanggal:</strong> {training.duration?.date}</div>
+            <div><strong>Waktu:</strong> {training.duration?.time || training.duration?.hour}</div>
+            <div><strong>Jumlah Peserta:</strong> {training.total_student == "" ? 0 : training.total_student}</div>
             <div><strong>Alamat:</strong> {training.location}</div>
           </div>
         </div>

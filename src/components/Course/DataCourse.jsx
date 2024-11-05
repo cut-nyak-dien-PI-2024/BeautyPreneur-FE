@@ -49,7 +49,7 @@ export default function DataCourse(props) {
                   alt="clock icon"
                   className="w-5 h-5"
                 />
-                <span className="text-sm text-gray-600">{item?.duration?.time}</span>
+                <span className="text-sm text-gray-600">{item?.duration?.time || item?.duration?.hour}</span>
               </div>
 
               {/* Bagian info mentor */}

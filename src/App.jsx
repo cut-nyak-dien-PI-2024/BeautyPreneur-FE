@@ -34,7 +34,7 @@ function App() {
             {/* Routes untuk halaman pembayaran */}
             <Route path="/payment/:id" element={<Payment1 />} />
             <Route path="/payment2/:id" element={<Payment2 />} />
-            <Route path="/payment3/:id" element={<Payment3 />} />
+            <Route path="/payment3/:id/:orderId" element={<Payment3 />} />
             <Route path="/success-payment" element={<SuccessBuy />} />
             {/* Routes untuk halaman Registrasi */}
             <Route path="/registrasi" element={<Registrasi/>}/>
