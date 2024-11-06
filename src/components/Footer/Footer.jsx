@@ -6,7 +6,7 @@ const Footer = () => {
       <div className="paddings innerWidth flexCenter f-container">
         {/* left side */}
         <div className="flexColStart c-left">
-          <span className="primaryText">Tentang BeautyPreneur</span>
+          <span className="primaryText">Tentang Beauty Preneur</span>
           <span className="secondaryText">
             Meet Our Team, and lets to know about us! Kita berkomitmen untuk membantu perempuan mendapatkan keahlian Make Up yang memiliki peluang besar untuk manfaat diri sendiri serta ekonomi.
           </span>
