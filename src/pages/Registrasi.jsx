@@ -10,10 +10,20 @@ const Registrasi = () => {
   const [whatsapp, setWhatsapp] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [errorPassword, setErrorPassword] = useState(""); // State untuk pesan error password
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+
+    // Validasi password: minimal 6 karakter, mengandung huruf dan angka
+    const passwordPattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/;
+    if (!passwordPattern.test(password)) {
+      setErrorPassword("*Password harus minimal 6 karakter dan terdiri dari huruf serta angka.");
+      return;
+    }
+    setErrorPassword(""); // Reset error jika validasi berhasil
+
     const dataPayload = {
       name: nama,
       email,
@@ -101,6 +111,14 @@ const Registrasi = () => {
                 {showPassword ? <FaEyeSlash /> : <FaEye />}
               </span>
             </div>
+            {/* Menampilkan pesan error jika ada */}
+            {errorPassword && (
+  <p style={{ color: 'red', fontSize: '12px', fontWeight: 'bold' }}>
+    {errorPassword}
+  </p>
+)}
+
+
           </div>
 
           <input
