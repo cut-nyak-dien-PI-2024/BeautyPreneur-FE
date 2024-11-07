@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import './Login.css';
 import { FaEye, FaEyeSlash, FaLock, FaEnvelope } from 'react-icons/fa';
+import { login } from '../components/services/authService';
 
 const Login = ({ onLogin }) => {
   const [emailInput, setEmailInput] = useState('');
@@ -9,17 +10,33 @@ const Login = ({ onLogin }) => {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async(event) => {
     event.preventDefault();
-    const user = JSON.parse(localStorage.getItem('user'));
-    if (user && user.email === emailInput && user.password === passwordInput) {
-      alert(`Selamat datang, ${user.nama}!`);
-      localStorage.setItem('isLoggedIn', 'true');
-      if (onLogin) onLogin({ email: emailInput });
-      navigate('/');
-    } else {
-      alert('Email atau password salah atau belum terdaftar!');
+    const data = {
+      email:emailInput,
+      password:passwordInput
     }
+
+    try {
+      const isToken = await login(data);
+      alert(isToken.message);
+      localStorage.setItem("isLoggedIn", "true");
+      localStorage.setItem('token', isToken.access_token);
+       navigate("/");
+    }catch(err){
+        alert(err.response.data.message);
+    }
+  
+
+    // const user = JSON.parse(localStorage.getItem('user'));
+    // if (user && user.email === emailInput && user.password === passwordInput) {
+    //   alert(`Selamat datang, ${user.nama}!`);
+    //   localStorage.setItem('isLoggedIn', 'true');
+    //   if (onLogin) onLogin({ email: emailInput });
+    //   navigate('/');
+    // } else {
+    //   alert('Email atau password salah atau belum terdaftar!');
+    // }
   };
 
   return (
