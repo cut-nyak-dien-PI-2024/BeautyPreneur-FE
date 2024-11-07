@@ -33,8 +33,9 @@ const Registrasi = () => {
 
     try {
       await register(dataPayload);
-      alert("Akun berhasil dibuat!");
-      navigate("/verif-regis");
+      alert("Akun berhasil dibuat!", );
+      // navigate("/verif-regis");
+      navigate("/login");
     } catch (err) {
       alert(err.response.data.message);
     }

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './LupaPassword.css';
 import { FaEnvelope } from 'react-icons/fa';
+import { forgotPassword } from '../components/services/authService';
 
 const LupaPassword = () => {
   const [email, setEmail] = useState('');
@@ -12,13 +13,16 @@ const LupaPassword = () => {
     return emailRegex.test(email);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validateEmail(email)) {
       alert('Masukkan email yang valid.');
     } else {
-      alert('Silahkan cek Email Anda untuk kode verifikasi');
-      navigate('/verif-kode'); // Mengarahkan ke halaman Verifkode
+      const isGetOtp = await forgotPassword(email);
+      if(isGetOtp) {
+        alert(isGetOtp.message);
+        navigate("/verif-kode"); // Mengarahkan ke halaman Verifkode
+      }
     }
   };
 

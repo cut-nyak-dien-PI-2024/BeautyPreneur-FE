@@ -38,3 +38,35 @@ export const getCurrentUser = async (token) => {
     throw error;
   }
 };
+
+export const forgotPassword = async (email) => {
+  const data = {
+    email: email,
+  };
+
+  try {
+    const response = await axios.post(`${API_BASE_URL}/auth/forgot-password`, data);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+
+export const resetPassword = async (password) => {
+  const otp = localStorage.getItem("otp");
+  const data = {
+    otp,
+    newpassword:password
+  };
+
+  try {
+    const response = await axios.post(
+      `${API_BASE_URL}/auth/reset-password`,
+      data
+    );
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};

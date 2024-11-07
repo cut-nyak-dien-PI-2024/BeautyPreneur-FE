@@ -21,6 +21,7 @@ const Verifkode = () => {
     e.preventDefault();
     const verificationCode = code.join('');
     alert(`Kode verifikasi: ${verificationCode}`);
+    localStorage.setItem("otp", verificationCode);
     
     // Navigasi ke halaman /lupa-password2
     navigate('/lupa-password2');

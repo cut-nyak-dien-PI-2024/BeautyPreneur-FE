@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './LupaPassword2.css';
 import { FaEye, FaEyeSlash, FaLock } from 'react-icons/fa';
+import { resetPassword } from '../components/services/authService';
 
 const LupaPassword2 = () => {
   const [email, setEmail] = useState('');
@@ -14,7 +15,7 @@ const LupaPassword2 = () => {
 
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
 
     // Validasi password: minimal 6 karakter, mengandung huruf dan angka
@@ -32,9 +33,12 @@ const LupaPassword2 = () => {
     }
     setErrorConfirmPassword(''); // Reset error message after confirmation validation
 
-    // Proses penggantian password
-    alert('Sandi Anda telah terganti! Silakan masuk kembali.');
-    navigate("/login");
+      const isSuccess = await resetPassword(password);
+      if(isSuccess){
+        // Proses penggantian password
+        alert("Sandi Anda telah terganti! Silakan masuk kembali.");
+        navigate("/login");
+      }
   };
 
   return (
