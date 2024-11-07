@@ -14,6 +14,7 @@ import Payment2 from "./pages/Payment2";
 import Payment3 from "./pages/Payment3";
 import SuccessBuy from './pages/SuccessBuy';
 import Registrasi from './pages/Registrasi';
+import VerifyRegister from "./pages/verifyRegiter";
 import Login from './pages/Login';  // Login component
 import LupaPassword from './pages/LupaPassword';
 import Verifkode from './pages/Verifkode';
@@ -38,6 +39,7 @@ function App() {
             <Route path="/success-payment" element={<SuccessBuy />} />
             {/* Routes untuk halaman Registrasi */}
             <Route path="/registrasi" element={<Registrasi/>}/>
+            <Route path="/verif-regis" element={<VerifyRegister/>} />
             <Route path="/login" element={<Login />} />
             <Route path="/lupa-password" element={<LupaPassword/>}/>
             <Route path="/verif-kode" element={<Verifkode/>}/>
