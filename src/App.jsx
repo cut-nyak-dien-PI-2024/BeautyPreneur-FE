@@ -18,6 +18,7 @@ import VerifyRegister from "./pages/verifyRegiter";
 import Login from './pages/Login';  // Login component
 import LupaPassword from './pages/LupaPassword';
 import Verifkode from './pages/Verifkode';
+import LupaPassword2 from "./pages/LupaPassword2";
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/lupa-password" element={<LupaPassword/>}/>
             <Route path="/verif-kode" element={<Verifkode/>}/>
+            <Route path="/lupa-password2" element={<LupaPassword2/>}/>
           </Routes>
           <Footer />
         </div>
