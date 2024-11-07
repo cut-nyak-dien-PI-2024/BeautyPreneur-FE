@@ -1,26 +1,29 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Verifkode.css';
 
 const Verifkode = () => {
-  const [code, setCode] = useState(['', '', '', '','']);
+  const [code, setCode] = useState(['', '', '', '', '']);
+  const navigate = useNavigate();
 
   const handleChange = (e, index) => {
     const newCode = [...code];
     newCode[index] = e.target.value;
     setCode(newCode);
-  
-    // Auto-focus to the next input if a digit is entered
+
+    // Auto-focus ke input berikutnya
     if (e.target.nextSibling && e.target.value) {
       e.target.nextSibling.focus();
     }
   };
-  
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const verificationCode = code.join('');
-    // Lakukan verifikasi dengan kode yang dimasukkan
     alert(`Kode verifikasi: ${verificationCode}`);
+    
+    // Navigasi ke halaman /lupa-password2
+    navigate('/lupa-password2');
   };
 
   return (
