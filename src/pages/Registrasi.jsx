@@ -23,11 +23,6 @@ const Registrasi = () => {
 
     try {
       await register(dataPayload);
-
-      localStorage.setItem(
-        "user",
-        JSON.stringify({ nama, email, whatsapp, password })
-      );
       alert("Akun berhasil dibuat!");
       navigate("/login");
     } catch (err) {

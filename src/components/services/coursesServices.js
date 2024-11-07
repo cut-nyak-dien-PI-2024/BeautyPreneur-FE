@@ -27,6 +27,7 @@ export const getCourseBySlug = async (slug) => {
 
 export const createOrder = async (slug) => {
   const token = localStorage.getItem('token') || '';
+
   return await axios.post(`${API_BASE_URL}/courses/${slug}/order`, {}, {
     headers: {
       'Authorization': `Bearer ${token}`
