@@ -34,13 +34,17 @@ const Header = () => {
           <div className="flexCenter h-menu" style={getMenuStyles(menuOpened)}>
             <Link to="/">Home</Link>
             <Link to="/kursus">Kelas</Link>
-            <a href="#budgetlist">Budget List</a>
+            <Link to="/makeup-budget-list">Makeup Budget List</Link>
 
             {isLoggedIn ? (
               <>
                 <div className="user-greeting">Halo, {user.nama}</div>
                 <div>
-                  <button onClick={handleLogout} id="exit" className="logout-button">
+                  <button
+                    onClick={handleLogout}
+                    id="exit"
+                    className="logout-button"
+                  >
                     Keluar
                   </button>
                 </div>
@@ -53,14 +57,19 @@ const Header = () => {
                   </Link>
                 </div>
                 <button className="button">
-                  <Link to="/registrasi" id="signup">Daftar</Link>
+                  <Link to="/registrasi" id="signup">
+                    Daftar
+                  </Link>
                 </button>
               </>
             )}
           </div>
         </OutsideClickHandler>
 
-        <div className="menu-icon" onClick={() => setMenuOpened(prev => !prev)}>
+        <div
+          className="menu-icon"
+          onClick={() => setMenuOpened((prev) => !prev)}
+        >
           <BiMenuAltRight size={30} />
         </div>
       </div>

@@ -19,6 +19,8 @@ import Login from './pages/Login';  // Login component
 import LupaPassword from './pages/LupaPassword';
 import Verifkode from './pages/Verifkode';
 import LupaPassword2 from "./pages/LupaPassword2";
+import MakeupBudgetList from "./pages/MakeupBudgetList";
+import DetailMakeupBudgetList from "./pages/DetailMakeupBudgetList";
 
 function App() {
   return (
@@ -28,9 +30,19 @@ function App() {
           <Header />
           {/* Menampilkan Hero hanya pada halaman utama */}
           <Routes>
-            <Route path="/" element={<><Hero /><Residencies /></>} />
+            <Route
+              path="/"
+              element={
+                <>
+                  <Hero />
+                  <Residencies />
+                </>
+              }
+            />
             <Route path="/kursus" element={<Course />} />
             <Route path="/data-kursus" element={<DataCourse />} />
+            <Route path="/makeup-budget-list" element={<MakeupBudgetList />} />
+            <Route path="/makeup-budget-list/:id" element={<DetailMakeupBudgetList />} />
             {/* Route untuk halaman detail kursus */}
             <Route path="/kursus/:id" element={<DataDetailCourse />} />
             {/* Routes untuk halaman pembayaran */}
@@ -39,12 +51,12 @@ function App() {
             <Route path="/payment3/:id/:orderId" element={<Payment3 />} />
             <Route path="/success-payment" element={<SuccessBuy />} />
             {/* Routes untuk halaman Registrasi */}
-            <Route path="/registrasi" element={<Registrasi/>}/>
-            <Route path="/verif-regis" element={<VerifyRegister/>} />
+            <Route path="/registrasi" element={<Registrasi />} />
+            <Route path="/verif-regis" element={<VerifyRegister />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/lupa-password" element={<LupaPassword/>}/>
-            <Route path="/verif-kode" element={<Verifkode/>}/>
-            <Route path="/lupa-password2" element={<LupaPassword2/>}/>
+            <Route path="/lupa-password" element={<LupaPassword />} />
+            <Route path="/verif-kode" element={<Verifkode />} />
+            <Route path="/lupa-password2" element={<LupaPassword2 />} />
           </Routes>
           <Footer />
         </div>
