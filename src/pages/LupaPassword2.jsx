@@ -34,7 +34,7 @@ const LupaPassword2 = () => {
     setErrorConfirmPassword(''); // Reset error message after confirmation validation
 
       const isSuccess = await resetPassword(password);
-      if(isSuccess){
+      if(isSuccess?.message){
         // Proses penggantian password
         alert("Sandi Anda telah terganti! Silakan masuk kembali.");
         navigate("/login");
