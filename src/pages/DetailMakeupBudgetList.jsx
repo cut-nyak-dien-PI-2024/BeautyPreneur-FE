@@ -17,25 +17,36 @@ export default function DetailMakeupBudgetList() {
   const [isLoading, setIsLoading] = useState(true);
 
   const getDataProduct = async (products) => {
-    const promises = products?.map((id) =>
-      getDataProductFromDetailMakeupPackage(id)
-    );
-    if (!Array.isArray(promises)) {
-      console.error("promises is not an array:", promises);
+    // const promises = products?.map((id) =>
+    //   getDataProductFromDetailMakeupPackage(id)
+    // );
+    if (!Array.isArray(products)) {
+      console.error("products is not an array:", products);
       return;
     }
 
-    const results = await Promise.all(promises);
-    return results;
+     const results = [];
+
+     for (const product of products) {
+         const result = await getDataProductFromDetailMakeupPackage(product);
+         results.push(result);
+     }
+
+     return results;
+    // const results = await Promise.all(promises);
+    // return results;
   };
 
   const hitApi = async (id) => {
     const getData = await getDetailMakeupPackage(id);
     setIsDetailMakeupPackage(getData.data);
+    hitSecondApi();
+    
   };
 
   const hitSecondApi = async () => {
     const dataProducts = await getDataProduct(isDetailMakeupPackage.data);
+
     if (dataProducts?.length !== 0) {
       const isData = dataProducts?.map((item) => item.data);
       if (isData) {
@@ -52,8 +63,10 @@ export default function DetailMakeupBudgetList() {
   }, [id]);
 
   useEffect(() => {
-    hitSecondApi();
+    if (isDetailMakeupPackage?.data?._id !== "") hitSecondApi();
   }, [isDetailMakeupPackage]);
+
+
 
   return (
     <div className="flex flex-col h-fit w-full mx-auto md:my-40 mt-10 md:mt-20 md:text-[22px] text-[14px] px-2 md:px-0 gap-14 font-medium capitalize max-w-7xl">
