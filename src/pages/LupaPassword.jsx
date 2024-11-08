@@ -18,11 +18,8 @@ const LupaPassword = () => {
     if (!validateEmail(email)) {
       alert('Masukkan email yang valid.');
     } else {
-      const isGetOtp = await forgotPassword(email);
-      if(isGetOtp) {
-        alert(isGetOtp.message);
+      await forgotPassword(email);
         navigate("/verif-kode"); // Mengarahkan ke halaman Verifkode
-      }
     }
   };
 
