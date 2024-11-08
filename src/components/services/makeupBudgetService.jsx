@@ -29,7 +29,9 @@ export const getDetailMakeupPackage = async (id) => {
 export const getDataProductFromDetailMakeupPackage = async (id) => {
   try {
     const response = await axios.get(`${API_BASE_URL}/makeup-budget/${id}`);
-    return response.data;
+    if (response.status === 200) {
+      return response.data;
+    }
   } catch (error) {
     console.error("Error fetching users:", error);
     throw error;

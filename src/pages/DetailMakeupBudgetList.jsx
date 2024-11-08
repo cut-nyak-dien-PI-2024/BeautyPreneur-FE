@@ -15,47 +15,47 @@ export default function DetailMakeupBudgetList() {
   ] = useState([]);
 
   const [isLoading, setIsLoading] = useState(true);
+  const [items, setItems] = useState([]);
+
+  const fetchWithTimeout = (url, timeout = 1000) => {
+    return Promise.race([
+      getDataProductFromDetailMakeupPackage(url), // Promise fetch yang asli
+      new Promise(
+        (_, reject) =>
+          setTimeout(() => reject(new Error("Request Timeout")), timeout) // Timeout error
+      ),
+    ]);
+  };
 
   const getDataProduct = async (products) => {
-    // const promises = products?.map((id) =>
-    //   getDataProductFromDetailMakeupPackage(id)
-    // );
-    if (!Array.isArray(products)) {
-      console.error("products is not an array:", products);
-      return;
+    let resultsData = [];
+    if (!Array.isArray(products) || products.length === 0) {
+      return [];
     }
 
-     const results = [];
+    const promises = products.map((product) => fetchWithTimeout(product));
 
-     for (const product of products) {
-         const result = await getDataProductFromDetailMakeupPackage(product);
-         results.push(result);
-     }
+    Promise.allSettled(promises)
+      .then((responses) => {
+        const getData = responses.filter((item) => item.status === "fulfilled");
+        const loopData = getData.map((item) => item.value.data);
+        setItems(loopData);
+      })
+      .catch((error) => {
+        console.error(error);
+        setItems([]);
+      });
 
-     return results;
-    // const results = await Promise.all(promises);
-    // return results;
+    return items;
   };
 
   const hitApi = async (id) => {
     const getData = await getDetailMakeupPackage(id);
     setIsDetailMakeupPackage(getData.data);
-    hitSecondApi();
-    
   };
 
   const hitSecondApi = async () => {
-    const dataProducts = await getDataProduct(isDetailMakeupPackage.data);
-
-    if (dataProducts?.length !== 0) {
-      const isData = dataProducts?.map((item) => item.data);
-      if (isData) {
-        setIsDataProductDetailMakeupPackage(isData);
-        setTimeout(() => {
-          setIsLoading(false);
-        }, 200);
-      }
-    }
+    await getDataProduct(isDetailMakeupPackage.data);
   };
 
   useEffect(() => {
@@ -66,8 +66,6 @@ export default function DetailMakeupBudgetList() {
     if (isDetailMakeupPackage?.data?._id !== "") hitSecondApi();
   }, [isDetailMakeupPackage]);
 
-
-
   return (
     <div className="flex flex-col h-fit w-full mx-auto md:my-40 mt-10 md:mt-20 md:text-[22px] text-[14px] px-2 md:px-0 gap-14 font-medium capitalize max-w-7xl">
       <div className="flex flex-col gap-10 mx-auto text-left">
@@ -77,12 +75,12 @@ export default function DetailMakeupBudgetList() {
         <h5 className="text-base">List Produk Sesuai Budget Kamu :</h5>
       </div>
       <div className="flex md:flex-row flex-col w-full justify-center">
-        {isLoading === true ? (
+        {isLoading === true && items.length === 0 ? (
           <h5 className="text-xl">loadingg.....</h5>
         ) : (
           <div className="flex md:flex-row flex-col flex-wrap mx-auto items-center justify-center gap-10 w-full">
-            {isDataProductDetailMakeupPackage?.length !== 0 &&
-              isDataProductDetailMakeupPackage.map((item, index) => (
+            {items?.length !== 0 &&
+              items.map((item, index) => (
                 <div
                   key={index}
                   className="bg-[#FCC9D4] cursor-pointer flex flex-col items-center md:w-[25%] w-[80%] rounded-[10px]"
