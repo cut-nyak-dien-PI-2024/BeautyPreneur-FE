@@ -22,7 +22,7 @@ const Login = ({ onLogin }) => {
       if(isToken.message !== ""){
         alert(isToken.message);
         const getDataUser = await getCurrentUser(isToken.access_token);
-        if (getDataUser?.user?.name) {
+        if (getDataUser) {
           localStorage.setItem(
             "user",
             JSON.stringify({
