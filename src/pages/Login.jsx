@@ -19,17 +19,24 @@ const Login = ({ onLogin }) => {
 
     try {
       const isToken = await login(data);
-      alert(isToken.message);
-      const getDataUser = await getCurrentUser(isToken.access_token); 
-      if (getDataUser) {
-        localStorage.setItem(
-          "user",
-          JSON.stringify({ nama: getDataUser.user.name, email:getDataUser.user.email, whatsapp: getDataUser.user.noTelephone})
-        );
-        localStorage.setItem("isLoggedIn", "true");
-        localStorage.setItem("token", isToken.access_token);
-        navigate("/");
+      if(isToken.message !== ""){
+        alert(isToken.message);
+        const getDataUser = await getCurrentUser(isToken.access_token);
+        if (getDataUser?.user?.name) {
+          localStorage.setItem(
+            "user",
+            JSON.stringify({
+              nama: getDataUser.user.name,
+              email: getDataUser.user.email,
+              whatsapp: getDataUser.user.noTelephone,
+            })
+          );
+          localStorage.setItem("isLoggedIn", "true");
+          localStorage.setItem("token", isToken.access_token);
+          navigate("/");
+        }
       }
+     
     } catch (err) {
       alert(err.response.data.message);
     }

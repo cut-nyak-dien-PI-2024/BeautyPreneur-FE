@@ -32,10 +32,13 @@ const Registrasi = () => {
     };
 
     try {
-      await register(dataPayload);
-      alert("Akun berhasil dibuat!", );
-      // navigate("/verif-regis");
+      const isTrue = await register(dataPayload);
+      console.log(isTrue, 'ini is true');
+
+      if(isTrue.message !== ""){
+      alert("Akun berhasil dibuat!");
       navigate("/login");
+      }
     } catch (err) {
       alert(err.response.data.message);
     }
