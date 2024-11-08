@@ -38,7 +38,7 @@ const Header = () => {
 
             {isLoggedIn ? (
               <>
-                <div className="user-greeting">Halo, {user.nama}</div>
+                <div className="user-greeting">Halo, {user?.nama}</div>
                 <div>
                   <button
                     onClick={handleLogout}

@@ -22,16 +22,11 @@ export default function DetailMakeupBudgetList() {
     );
     if (!Array.isArray(promises)) {
       console.error("promises is not an array:", promises);
-      return; 
+      return;
     }
-    const results = await Promise.all(promises);    
-    const isData = results.map((item) => item.data);
-    if (isData) {
-      setIsDataProductDetailMakeupPackage(isData);
-      setTimeout(() => {
-        setIsLoading(false);
-      }, 200);
-    }
+
+    const results = await Promise.all(promises);
+    return results;
   };
 
   const hitApi = async (id) => {
@@ -40,7 +35,16 @@ export default function DetailMakeupBudgetList() {
   };
 
   const hitSecondApi = async () => {
-    await getDataProduct(isDetailMakeupPackage.data);
+    const dataProducts = await getDataProduct(isDetailMakeupPackage.data);
+    if (dataProducts?.length !== 0) {
+      const isData = dataProducts?.map((item) => item.data);
+      if (isData) {
+        setIsDataProductDetailMakeupPackage(isData);
+        setTimeout(() => {
+          setIsLoading(false);
+        }, 200);
+      }
+    }
   };
 
   useEffect(() => {
@@ -66,7 +70,10 @@ export default function DetailMakeupBudgetList() {
           <div className="flex md:flex-row flex-col flex-wrap mx-auto items-center justify-center gap-10 w-full">
             {isDataProductDetailMakeupPackage?.length !== 0 &&
               isDataProductDetailMakeupPackage.map((item, index) => (
-                <div key={index} className="bg-[#FCC9D4] cursor-pointer flex flex-col items-center md:w-[25%] w-[80%] rounded-[10px]">
+                <div
+                  key={index}
+                  className="bg-[#FCC9D4] cursor-pointer flex flex-col items-center md:w-[25%] w-[80%] rounded-[10px]"
+                >
                   <div className=" mt-4 mb-4  px-4 py-2 ">
                     <h5 className="text-[16px] text-[#EB395F]">
                       {item.product_name}
