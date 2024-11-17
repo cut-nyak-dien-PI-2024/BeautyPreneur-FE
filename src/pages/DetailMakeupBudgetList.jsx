@@ -17,12 +17,12 @@ export default function DetailMakeupBudgetList() {
   const [isLoading, setIsLoading] = useState(true);
   const [items, setItems] = useState([]);
 
-  const fetchWithTimeout = (url, timeout = 1000) => {
+  const fetchWithTimeout = (url, timeout = 500) => {
     return Promise.race([
-      getDataProductFromDetailMakeupPackage(url), // Promise fetch yang asli
+      getDataProductFromDetailMakeupPackage(url),
       new Promise(
         (_, reject) =>
-          setTimeout(() => reject(new Error("Request Timeout")), timeout) // Timeout error
+          setTimeout(() => reject(new Error("Request Timeout")), timeout)
       ),
     ]);
   };
@@ -68,11 +68,11 @@ export default function DetailMakeupBudgetList() {
 
   return (
     <div className="flex flex-col h-fit w-full mx-auto md:my-40 mt-10 md:mt-20 md:text-[22px] text-[14px] px-2 md:px-0 gap-14 font-medium capitalize max-w-7xl">
-      <div className="flex flex-col gap-10 mx-auto text-left">
-        <h4 className="text-3xl text-[#EB395F]">
+      <div className="flex flex-col gap-5 mx-auto text-center">
+        <h4 className="text-3xl text-[#d63583] font-bold mb-0">
           {isDetailMakeupPackage.name}
         </h4>
-        <h5 className="text-base">List Produk Sesuai Budget Kamu :</h5>
+        <h5 className="text-base text-[#feacc4] mt-0">List Produk Sesuai Budget Kamu :</h5>
       </div>
       <div className="flex md:flex-row flex-col w-full justify-center">
         {isLoading === true && items.length === 0 ? (
@@ -83,21 +83,23 @@ export default function DetailMakeupBudgetList() {
               items.map((item, index) => (
                 <div
                   key={index}
-                  className="bg-[#FCC9D4] cursor-pointer flex flex-col items-center md:w-[25%] w-[80%] rounded-[10px]"
+                  className="bg-white shadow-lg overflow-hidden md:w-1/2 lg:w-1/3 transition-transform transform hover:scale-105 border-none"
                 >
-                  <div className=" mt-4 mb-4  px-4 py-2 ">
-                    <h5 className="text-[16px] text-[#EB395F]">
-                      {item.product_name}
-                    </h5>
-                  </div>
                   <img
                     src={item.image_url}
                     alt="image"
-                    className="w-full h-[190px] rounded-none"
+                    className="w-full rounded-none"
                   />
-                  <div className=" px-4 py-2 mb-4 justify-start text-[14px] text-[#EB395F] w-full flex flex-col">
-                    <h5 className="mb-6 mt-4">{item.price}</h5>
-                    <a href={item.product_link}>Checkout</a>
+                  <div className="p-4 flex flex-col mb-4">
+                    <h5 className="text-[16px] text-[#d63583] font-bold mb-2">
+                      {item.product_name}
+                    </h5>
+                    <div className="flex justify-between items-center text-[14px] text-[#ff779e]">
+                      <span>{item.price}</span>
+                      <a href={item.product_link} className="text-[#feacc4] hover:underline">
+                        Checkout
+                      </a>
+                    </div>
                   </div>
                 </div>
               ))}
