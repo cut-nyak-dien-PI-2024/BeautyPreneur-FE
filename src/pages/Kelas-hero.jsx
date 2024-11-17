@@ -4,8 +4,9 @@ import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 // Import Swiper styles
 import "swiper/css";
 import "./KelasHero.css";
+import { Link } from 'react-router-dom';
 import { sliderSettings } from "../utils/common";
-const Residencies = () => {
+const KelasHero = () => {
   return (
     <div id="kelas" className="r-wrapper">
       <div className="paddings innerWidth r-container">
@@ -18,7 +19,7 @@ const Residencies = () => {
           {/* slider */}
           {data.map((card, i) => (
             <SwiperSlide key={i}>
-              <div className="flexColStart r-card">
+              <Link to={`/kursus`} className="flexColStart r-card">
                 <img src={card.image} alt="home" />
 
                 <span className="secondaryText r-price">
@@ -27,7 +28,7 @@ const Residencies = () => {
                 </span>
                 <span className="primaryText">{card.name}</span>
                 <span className="secondaryText">{card.detail}</span>
-              </div>
+                </Link>
             </SwiperSlide>
           ))}
         </Swiper>
@@ -36,7 +37,7 @@ const Residencies = () => {
   );
 };
 
-export default Residencies;
+export default KelasHero;
 
 const SlideNextButton = () => {
   const swiper = useSwiper();
