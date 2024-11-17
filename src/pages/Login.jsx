@@ -55,7 +55,7 @@ const Login = ({ onLogin }) => {
   return (
     <div id="login-auth">
       <div className="auth__container">
-        <h5 className="auth__header">
+        <h5 className="auth__header ">
           <strong>Login</strong>
         </h5>
         <form className="auth__form" onSubmit={handleSubmit} id="sign-in">

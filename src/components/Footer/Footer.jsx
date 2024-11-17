@@ -1,5 +1,6 @@
 import React from "react";
 import "./Footer.css";
+import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <div className="c-wrapper">
@@ -126,9 +127,9 @@ const Footer = () => {
               </a>
                {/* Navbar side */}
               <div className="flexCenter c-menu secondaryText">
-                <a href="#home">Home</a>
-                <a href="#kelas">Kelas</a>
-                <a href="#budgetlist">Budget List</a>
+              <Link to="/">Home</Link>
+              <Link to="/kursus">Kelas</Link>
+              <Link to="/makeup-budget-list">Makeup Budget List</Link>
               </div>
             </div>
           </div>
