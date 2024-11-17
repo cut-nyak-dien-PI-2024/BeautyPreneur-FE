@@ -83,7 +83,7 @@ const Hero = () => {
                     <div
                       key={course.id}
                       className="search-result-item"
-                      onClick={() => navigate(`/kursus/${course.id}`)}
+                      onClick={() => navigate(`/kursus`)}
                     >
                       {course.title}
                     </div>
