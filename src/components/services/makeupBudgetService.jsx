@@ -17,23 +17,26 @@ export const getAllMakeupPackage = async () => {
 //get Detail Makeup
 export const getDetailMakeupPackage = async (id) => {
   try {
-    const response = await axios.get(`${API_BASE_URL}/makeup-package/${id}`);
-    return response.data;
-  } catch (error) {
-    console.error("Error fetching users:", error);
-    throw error;
+    const makeupPackage = await axios.get(`${API_BASE_URL}/makeup-package/${id}`);
+    const makeupBudgetIDs = makeupPackage?.data?.data?.data;
+  
+    if (makeupBudgetIDs.length > 0) {
+      const makeupBudgetRequests = makeupBudgetIDs.map(id => getDataProductFromDetailMakeupPackage(id));
+      const makeupBudgetResp = await axios.all(makeupBudgetRequests);
+      const makeupBudgetRespData = makeupBudgetResp.map(resp => resp?.data?.data);
+
+      return {
+        makeup_package: makeupPackage,
+        makeup_budgets: makeupBudgetRespData,
+      }
+    }
+  } catch (err) {
+    console.error("Error fetching detail makeup package:", err);
+    throw err
   }
 };
 
 //get Detail Makeup
 export const getDataProductFromDetailMakeupPackage = async (id) => {
-  try {
-    const response = await axios.get(`${API_BASE_URL}/makeup-budget/${id}`);
-    if (response.status === 200) {
-      return response.data;
-    }
-  } catch (error) {
-    console.error("Error fetching users:", error);
-    throw error;
-  }
+  return axios.get(`${API_BASE_URL}/makeup-budget/${id}`);
 };
