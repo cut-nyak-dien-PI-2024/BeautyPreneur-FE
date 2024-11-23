@@ -2,7 +2,7 @@ import axios from "axios";
 
 
 //BASE URL 
-const API_BASE_URL = 'https://raspy-estella-windiazmi-05533591.koyeb.app';
+const API_BASE_URL = "https://naughty-catlee-baeuty-preneur-59c1e8a1.koyeb.app";
 // const api_url = `https://api.mockfly.dev/mocks/74037101-b7cd-43f3-846a-7a1e87ad952f/pelatihan`;
 
 //get All Course 
