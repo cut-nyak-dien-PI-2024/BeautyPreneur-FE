@@ -40,6 +40,7 @@ export default function DetailMakeupBudgetList() {
         const getData = responses.filter((item) => item.status === "fulfilled");
         const loopData = getData.map((item) => item.value.data);
         setItems(loopData);
+        isLoading(false);
       })
       .catch((error) => {
         setItems([]);
@@ -51,7 +52,6 @@ export default function DetailMakeupBudgetList() {
   const hitApi = async (id) => {
     const getData = await getDetailMakeupPackage(id);
     setIsDetailMakeupPackage(getData.data);
-    setIsLoading(false);
   };
 
   const hitSecondApi = async () => {
