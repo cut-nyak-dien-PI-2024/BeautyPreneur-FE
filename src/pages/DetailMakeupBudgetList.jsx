@@ -42,7 +42,6 @@ export default function DetailMakeupBudgetList() {
         setItems(loopData);
       })
       .catch((error) => {
-        console.error(error);
         setItems([]);
       });
 
@@ -52,6 +51,7 @@ export default function DetailMakeupBudgetList() {
   const hitApi = async (id) => {
     const getData = await getDetailMakeupPackage(id);
     setIsDetailMakeupPackage(getData.data);
+    setIsLoading(false);
   };
 
   const hitSecondApi = async () => {
@@ -75,7 +75,7 @@ export default function DetailMakeupBudgetList() {
         <h5 className="text-base text-[#feacc4] mt-0">List Produk Sesuai Budget Kamu :</h5>
       </div>
       <div className="flex md:flex-row flex-col w-full justify-center">
-        {isLoading === true && items.length === 0 ? (
+        {isLoading && items.length === 0 ? (
           <h5 className="text-xl">loadingg.....</h5>
         ) : (
           <div className="flex md:flex-row flex-col flex-wrap mx-auto items-center justify-center gap-10 w-full">
