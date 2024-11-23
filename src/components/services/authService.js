@@ -1,7 +1,7 @@
 import axios from "axios";
 
 //BASE URL
-const API_BASE_URL = "https://raspy-estella-windiazmi-05533591.koyeb.app";
+const API_BASE_URL = "https://naughty-catlee-baeuty-preneur-59c1e8a1.koyeb.app";
 
 export const register = async (payload) => {
   try {
