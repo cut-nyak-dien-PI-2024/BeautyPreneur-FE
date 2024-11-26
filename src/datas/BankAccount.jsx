@@ -7,5 +7,5 @@ export default {
         BANK_ACCOUNT_4: "BNI no rek 1387505038 a/n Sabrina Natasya Bilbina",
     },
     
-    PAYMENT_CONFIRMATION_PHONE: "6285259396969",
+    PAYMENT_CONFIRMATION_PHONE: "6285773941610",
 }
